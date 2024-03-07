@@ -1,23 +1,38 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace CMP1903_A1_2324
 {
     internal class Die
     {
-        /*
-         * The Die class should contain one property to hold the current die value,
-         * and one method that rolls the die, returns and integer and takes no parameters.
-         */
+        // variables
+        private int _dieValue;
+        private Random random;
 
-        //Property
+        /*using encapslaltion to allow _dieValue 
+         * to store the die value */
+        public int DieValue
+        {
+            get { return _dieValue; }
+            set { _dieValue = value; }
 
-
-        //Method
-
-
+        }
+        /* this is the method to roll a single Die and 
+         * return it as an int*/
+        public int Roll()
+        {
+            Thread.Sleep(50);
+            _dieValue = random.Next(1, 7);
+            return _dieValue;
+            
+        }
+        public Die()
+        {
+            random = new Random();
+        }
     }
 }
